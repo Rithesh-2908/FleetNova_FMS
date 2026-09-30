@@ -3,14 +3,15 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+
   "scripts": {
-    "dev": "tsx server.ts",
+    "dev": "node server.js",
     "build": "vite build",
-    "start": "tsx server.ts",
+    "start": "node server.js",
     "preview": "vite preview",
-    "seed": "tsx server/seed/seedData.js",
-    "lint": "tsc --noEmit"
+    "seed": "node server/seed/seedData.js"
   },
+
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
@@ -26,17 +27,10 @@
     "react-dom": "^19.0.1",
     "vite": "^7.2.6"
   },
+
   "devDependencies": {
-    "@types/bcryptjs": "^3.0.0",
-    "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^22.14.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
-    "tailwindcss": "^4.1.14",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "tailwindcss": "^4.1.14"
   }
 }

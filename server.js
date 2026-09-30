@@ -64,6 +64,7 @@ async function startServer() {
   if (!isProduction) {
     // Mount Vite Dev Server middleware
     const { createServer: createViteServer } = await import('vite');
+
     const vite = await createViteServer({
       server: {
         middlewareMode: true,
@@ -71,11 +72,14 @@ async function startServer() {
       },
       appType: 'spa'
     });
+
     app.use(vite.middlewares);
   } else {
     // Production static serving
     const distPath = path.resolve(__dirname, 'dist');
+
     app.use(express.static(distPath));
+
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(distPath, 'index.html'));
     });
@@ -84,9 +88,17 @@ async function startServer() {
   // Error Handler
   app.use(errorHandler);
 
-  app.listen(Number(PORT), '0.0.0.0', () => {
-    console.log(`[FLEETNOVA] Server running on http://0.0.0.0:${PORT}`);
-    console.log(`[FLEETNOVA] FleetAI Assistant ready on /api/ai/chat`);
+  // Start Server
+  app.listen(Number(PORT), 'localhost', () => {
+    console.log('');
+    console.log('==========================================');
+    console.log('🚀 FLEETNOVA SERVER RUNNING');
+    console.log('==========================================');
+    console.log(`🌐 Website: http://localhost:${PORT}`);
+    console.log(`❤️  Health:  http://localhost:${PORT}/api/health`);
+    console.log(`🤖 FleetAI: http://localhost:${PORT}/api/ai/chat`);
+    console.log('==========================================');
+    console.log('');
   });
 }
 
