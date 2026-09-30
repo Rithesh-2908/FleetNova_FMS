@@ -92,12 +92,11 @@ async function startServer() {
   app.listen(Number(PORT), 'localhost', () => {
     console.log('');
     console.log('==========================================');
-    console.log('🚀 FLEETNOVA SERVER RUNNING');
+    console.log('FLEETNOVA SERVER RUNNING');
     console.log('==========================================');
-    console.log(`🌐 Website: http://localhost:${PORT}`);
-    console.log(`❤️  Health:  http://localhost:${PORT}/api/health`);
-    console.log(`🤖 FleetAI: http://localhost:${PORT}/api/ai/chat`);
-    console.log('==========================================');
+    console.log(`Website: http://localhost:${PORT}`);
+    console.log(`Health:  http://localhost:${PORT}/api/health`);
+    console.log(`FleetAI: http://localhost:${PORT}/api/ai/chat`);
     console.log('');
   });
 }
